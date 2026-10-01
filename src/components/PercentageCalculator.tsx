@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import InputField from "@/components/InputField";
 import PrimaryButton from "@/components/PrimaryButton";
 import ResultCard from "@/components/ResultCard";
 import ResetButton from "@/components/ResetButton";
 import ErrorMessage from "@/components/ErrorMessage";
 import CopyButton from "@/components/CopyButton";
+import { toolConfig } from "@/lib/tool-config";
 
 export default function PercentageCalculator() {
   const [percentage, setPercentage] = useState("");
@@ -14,7 +15,9 @@ export default function PercentageCalculator() {
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState("");
 
-  const calculate = () => {
+  const calculate = (event?: FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+
     setError("");
     setResult(null);
 
@@ -56,7 +59,7 @@ export default function PercentageCalculator() {
       : "";
 
   return (
-    <div>
+    <form onSubmit={calculate}>
       <div className="grid gap-6 sm:grid-cols-2">
         <InputField
           label="Percentage"
@@ -79,8 +82,8 @@ export default function PercentageCalculator() {
       </div>
 
       <div className="mt-6">
-        <PrimaryButton onClick={calculate}>
-          Calculate Percentage
+        <PrimaryButton type="submit">
+          {toolConfig.tool.buttonText}
         </PrimaryButton>
       </div>
 
@@ -98,6 +101,6 @@ export default function PercentageCalculator() {
       <div className="mt-3">
         <ResetButton onClick={reset} />
       </div>
-    </div>
+    </form>
   );
 }

@@ -4,16 +4,16 @@ import { toolConfig } from "@/lib/tool-config";
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
-          className="group flex items-center gap-2.5"
+          className="group flex min-w-0 items-center gap-2.5"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white shadow-sm transition group-hover:scale-105">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white shadow-sm transition group-hover:scale-105">
             ✦
           </span>
 
-          <span className="text-lg font-bold tracking-tight text-slate-900">
+          <span className="truncate text-base font-bold tracking-tight text-slate-900 sm:text-lg">
             {toolConfig.name}
           </span>
         </Link>
@@ -36,7 +36,7 @@ export default function Header() {
 
         <Link
           href="#tool"
-          className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 sm:hidden"
+          className="rounded-lg bg-slate-900 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-slate-700 sm:hidden"
         >
           Use Tool
         </Link>
