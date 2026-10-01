@@ -1,12 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ToolLayout from "@/components/ToolLayout";
-import { toolConfig } from "@/lib/tool-config";
 import FAQ from "@/components/FAQ";
+import PercentageCalculator from "@/components/PercentageCalculator";
+import StructuredData from "@/components/StructuredData";
+import { toolConfig } from "@/lib/tool-config";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
+
       <Header />
 
       <ToolLayout
@@ -20,11 +24,11 @@ export default function Home() {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-bold text-slate-900">
-                Get started
+                {toolConfig.tool.name}
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">
-                Use the tool below to get your result.
+                {toolConfig.tool.description}
               </p>
             </div>
 
@@ -33,32 +37,85 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="flex min-h-[220px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-xl text-blue-600">
-              ✦
-            </div>
-
-            <h3 className="mt-4 text-lg font-bold text-slate-900">
-              Your tool starts here
-            </h3>
-
-            <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
-              The actual tool interface will be added here.
-            </p>
-
-            <button
-              type="button"
-              className="mt-5 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
-            >
-              Get Started
-            </button>
-          </div>
+          <PercentageCalculator />
         </div>
       </ToolLayout>
 
+      <section className="mx-auto max-w-4xl px-6 py-16">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-bold text-slate-900">
+            {toolConfig.name}
+          </h2>
+
+          <p className="mt-4 leading-7 text-slate-600">
+            {toolConfig.content.intro}
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <h3 className="text-lg font-bold text-slate-900">
+              How to Use
+            </h3>
+
+            <ol className="mt-5 space-y-4">
+              {toolConfig.content.howToUse.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex gap-3 text-sm leading-6 text-slate-600"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 text-xs font-bold text-blue-600">
+                    {index + 1}
+                  </span>
+
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <h3 className="text-lg font-bold text-slate-900">
+              Formula
+            </h3>
+
+            <div className="mt-5 rounded-xl bg-slate-50 p-4">
+              <code className="text-sm font-semibold text-slate-700">
+                {toolConfig.content.formula}
+              </code>
+            </div>
+
+            <p className="mt-5 text-sm leading-6 text-slate-600">
+              {toolConfig.content.example}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+          <h3 className="text-lg font-bold text-slate-900">
+            Why Use This Tool?
+          </h3>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {toolConfig.content.benefits.map((benefit) => (
+              <div
+                key={benefit}
+                className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3"
+              >
+                <span className="text-blue-600">✓</span>
+
+                <span className="text-sm font-medium text-slate-700">
+                  {benefit}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         id="about"
-        className="mx-auto max-w-4xl px-6 py-16"
+        className="mx-auto max-w-4xl px-6 pb-16"
       >
         <h2 className="text-2xl font-bold text-slate-900">
           {toolConfig.about.title}
@@ -88,16 +145,16 @@ export default function Home() {
         </div>
       </section>
 
-     <section
-  id="faq"
-  className="mx-auto max-w-4xl px-6 pb-16"
->
-  <h2 className="text-2xl font-bold text-slate-900">
-    Frequently Asked Questions
-  </h2>
+      <section
+        id="faq"
+        className="mx-auto max-w-4xl px-6 pb-16"
+      >
+        <h2 className="text-2xl font-bold text-slate-900">
+          Frequently Asked Questions
+        </h2>
 
-  <FAQ items={toolConfig.faqs} />
-</section>
+        <FAQ items={toolConfig.faqs} />
+      </section>
 
       <Footer />
     </>

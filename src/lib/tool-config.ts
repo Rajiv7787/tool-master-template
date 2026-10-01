@@ -1,24 +1,57 @@
 export const toolConfig = {
-  name: "Tool Name",
-  shortName: "Tool",
+  name: "Percentage Calculator",
+  shortName: "Percentage Calculator",
 
   description:
-    "A fast, simple and free online tool that helps you get the job done quickly.",
+    "Calculate percentages quickly and easily with this free online percentage calculator.",
 
   url: "https://example.com",
 
-  category: "Utilities",
+  category: "Calculators",
 
   contactEmail: "hello@example.com",
 
   seo: {
-    title: "Tool Name - Free Online Tool",
+    title: "Percentage Calculator - Free Online Calculator",
     description:
-      "Use this free online tool to get fast and accurate results directly in your browser.",
+      "Calculate percentages quickly and easily with this free online percentage calculator.",
     keywords: [
-      "tool name",
-      "free online tool",
-      "online tool",
+      "percentage calculator",
+      "percentage calculator online",
+      "calculate percentage",
+      "free percentage calculator",
+    ],
+  },
+
+  tool: {
+    name: "Percentage Calculator",
+    description:
+      "Enter your values below to calculate the percentage.",
+    buttonText: "Calculate Percentage",
+  },
+
+  content: {
+    intro:
+      "Use this free percentage calculator to quickly find a percentage of any number. Enter a percentage and a number to get an accurate result instantly.",
+
+    howToUse: [
+      "Enter the percentage you want to calculate.",
+      "Enter the number you want to calculate the percentage of.",
+      "Click the Calculate Percentage button.",
+      "Your result will appear instantly below the calculator.",
+    ],
+
+    formula:
+      "Percentage result = (Percentage ÷ 100) × Number",
+
+    example:
+      "For example, 20% of 500 is calculated as (20 ÷ 100) × 500 = 100.",
+
+    benefits: [
+      "Calculate percentages instantly",
+      "Simple and easy-to-use interface",
+      "Works on mobile and desktop devices",
+      "No installation or registration required",
     ],
   },
 
@@ -31,31 +64,31 @@ export const toolConfig = {
   ],
 
   about: {
-    title: "About Tool Name",
+    title: "About Percentage Calculator",
     description:
-      "Tool Name is a simple and easy-to-use online tool designed to help you get fast results directly in your browser.",
+      "Percentage Calculator is a simple and easy-to-use online tool designed to help you calculate percentages quickly and accurately directly in your browser.",
   },
 
   faqs: [
     {
-      question: "Is this tool free?",
+      question: "Is this percentage calculator free?",
       answer:
-        "Yes, this tool is free to use with no installation required.",
+        "Yes, this percentage calculator is completely free to use.",
+    },
+    {
+      question: "How do I calculate a percentage?",
+      answer:
+        "Enter the percentage and the number, then click the Calculate Percentage button to get your result.",
     },
     {
       question: "Do I need to install anything?",
       answer:
-        "No. You can use the tool directly in your web browser.",
+        "No. You can use the percentage calculator directly in your web browser.",
     },
     {
-      question: "Does this tool work on mobile devices?",
+      question: "Does it work on mobile devices?",
       answer:
-        "Yes. The website is designed to work on mobile phones, tablets and desktop computers.",
-    },
-    {
-      question: "Is my data uploaded to a server?",
-      answer:
-        "Tools that process data directly in your browser can work without uploading your information to a server.",
+        "Yes. The calculator is designed to work on phones, tablets and desktop computers.",
     },
   ],
 };
