@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ToolLayout from "@/components/ToolLayout";
 import { toolConfig } from "@/lib/tool-config";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -55,52 +56,48 @@ export default function Home() {
         </div>
       </ToolLayout>
 
-      {/* About */}
       <section
         id="about"
         className="mx-auto max-w-4xl px-6 py-16"
       >
         <h2 className="text-2xl font-bold text-slate-900">
-          About this tool
+          {toolConfig.about.title}
         </h2>
 
         <p className="mt-4 leading-7 text-slate-600">
-          This free online tool is designed to be simple, fast and easy to
-          use. No complicated setup is required.
+          {toolConfig.about.description}
         </p>
-      </section>
 
-      {/* FAQ */}
-      <section
-        id="faq"
-        className="mx-auto max-w-4xl px-6 pb-16"
-      >
-        <h2 className="text-2xl font-bold text-slate-900">
-          Frequently Asked Questions
-        </h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {toolConfig.features.map((feature) => (
+            <div
+              key={feature}
+              className="rounded-xl border border-slate-200 bg-white p-5"
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-sm text-blue-600">
+                  ✓
+                </span>
 
-        <div className="mt-8 space-y-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-5">
-            <h3 className="font-semibold text-slate-900">
-              Is this tool free?
-            </h3>
-
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Yes, this tool is free to use.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-slate-200 bg-white p-5">
-            <h3 className="font-semibold text-slate-900">
-              Do I need to install anything?
-            </h3>
-
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              No. You can use the tool directly in your web browser.
-            </p>
-          </div>
+                <span className="text-sm font-semibold text-slate-800">
+                  {feature}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
+
+     <section
+  id="faq"
+  className="mx-auto max-w-4xl px-6 pb-16"
+>
+  <h2 className="text-2xl font-bold text-slate-900">
+    Frequently Asked Questions
+  </h2>
+
+  <FAQ items={toolConfig.faqs} />
+</section>
 
       <Footer />
     </>
